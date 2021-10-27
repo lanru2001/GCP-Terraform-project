@@ -1,4 +1,4 @@
-project                 = "vc-dev-1"
+project                 = "my-user-project-326713"
 network_name            = "vpc-network-dev"
 network                 = "default"
 subnetwork              = "prod"
