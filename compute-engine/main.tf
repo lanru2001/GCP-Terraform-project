@@ -1,3 +1,11 @@
+# Create a public IP address for our google compute instance to utilize
+resource "google_compute_address" "static" {
+  name = "vm-public-address"
+  project = var.project
+  region = var.region
+  depends_on = [ google_compute_firewall.firewall ]
+}
+
 # Terraform configuration of compute engine(VM )
 resource "google_compute_instance" "web_server" {
     name         = var.vm_name
@@ -35,6 +43,14 @@ resource "google_compute_instance" "web_server" {
     }    
 
     metadata_startup_script         = file("startup.sh")
-
+    
+    provisioner "remote-exec" {
+      connection {
+        host        = google_compute_address.static.address
+        type        = "ssh"
+        user        = var.user
+        timeout     = "500s"
+        private_key = file(var.privatekeypath)
+    }
 }
 
