@@ -1,8 +1,8 @@
-project                 = "my-user-project-326713"
+project                 = "My user project" 
 network_name            = "vpc-network-dev"
 network                 = "default"
 subnetwork              = "prod"
-subnetwork_project      = ""
+subnetwork_project      = "My user project" 
 auto_create_subnetworks = true
 vm_name                 = "jenkins-dev-server"
 machine_type            = "e2-medium"
