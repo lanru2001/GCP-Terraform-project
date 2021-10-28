@@ -23,7 +23,7 @@ resource "google_container_cluster"  "my_cluster" {
   #logging_config          =
   logging_service          = "logging.googleapis.com/kubernetes"
   #labels
-  min_master_version
+  #min_master_version
 }
 
 
@@ -37,12 +37,12 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
   disk_size_gb = "30"
   disk_type    = "pd-standard"
   preemptible  = false  
-  node_config {
+  node_config   {
     preemptible  = true
     machine_type = "e2-medium"
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.446991545978-compute@developer.gserviceaccount.com
+    service_account = "google_service_account.446991545978-compute@developer.gserviceaccount.com"
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
