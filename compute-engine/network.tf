@@ -9,7 +9,7 @@ resource "google_compute_network" "compute_network" {
 #Google network firewall 
 resource "google_compute_firewall"   "compute_firewall" {
   project                 = var.project
-  name                    = ""
+  name                    = "jenkins-firewall"
   network                 = var.network
   description             = "Creates firewall rule targeting tagged instances"
   
