@@ -134,3 +134,20 @@ variable "source_ranges" {
 
 }
 
+variable "user" {
+   type    = string
+   default = ""  
+}
+
+variable "email" {
+  type    = string
+  default = ""
+}
+variable "privatekeypath" {
+   type = string
+   default = "~/.ssh/id_rsa"
+}
+variable "publickeypath" {
+   type = string
+   default = "~/.ssh/id_rsa.pub"
+}
