@@ -14,6 +14,8 @@ resource "google_compute_instance" "web_server" {
     project      = var.project
 
     tags         = var.tags
+    # Ensure firewall rule is provisioned before server, so that SSH doesn't fail.
+    depends_on = [ google_compute_firewall.rules_firewall ]
 
     boot_disk {
         auto_delete                 = true
@@ -43,6 +45,9 @@ resource "google_compute_instance" "web_server" {
     }    
 
     metadata_startup_script         = file("startup.sh")
+    metadata = {
+      ssh-keys = "${var.user}:${file(var.publickeypath)}"
+    }    
     
     provisioner "remote-exec" {
       connection {
@@ -51,6 +56,7 @@ resource "google_compute_instance" "web_server" {
         user        = var.user
         timeout     = "500s"
         private_key = file(var.privatekeypath)
-    }
+      }
+    }  
 }
 
