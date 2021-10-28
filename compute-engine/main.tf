@@ -3,7 +3,7 @@ resource "google_compute_address" "static" {
   name = "vm-public-address"
   project = var.project
   region = var.region
-  depends_on = [ google_compute_firewall.firewall ]
+  depends_on = [ google_compute_firewall.rules_firewall ]
 }
 
 # Terraform configuration of compute engine(VM )
