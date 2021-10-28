@@ -10,8 +10,6 @@ module "gke_cluster" {
   network  = module.vpc_network.network
 
   # We're deploying the cluster in the 'public' subnetwork to allow outbound internet access
-  # See the network access tier table for full details:
-  # https://github.com/gruntwork-io/terraform-google-network/tree/master/modules/vpc-network#access-tier
   subnetwork = module.vpc_network.public_subnetwork
 
   # When creating a private cluster, the 'master_ipv4_cidr_block' has to be defined and the size must be /28
@@ -99,11 +97,11 @@ resource "google_container_node_pool" "node_pool" {
 }
  
 # ALLOW THE CUSTOM SERVICE ACCOUNT TO PULL IMAGES FROM THE GCR REPO
-resource "google_storage_bucket_iam_member" "member" {
-  bucket = "artifacts.${var.project}.appspot.com"
-  role   = "roles/storage.objectViewer"
-  member = "serviceAccount:${module.gke_service_account.email}"
-}
+#resource "google_storage_bucket_iam_member" "member" {
+#  bucket = "artifacts.${var.project}.appspot.com"
+#  role   = "roles/storage.objectViewer"
+#  member = "serviceAccount:${module.gke_service_account.email}"
+#}
   
 # CREATE A NETWORK TO DEPLOY THE CLUSTER TO
 module "vpc_network" {
