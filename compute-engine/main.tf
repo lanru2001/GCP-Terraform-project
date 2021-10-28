@@ -45,7 +45,11 @@ resource "google_compute_instance" "web_server" {
     }    
 
     metadata_startup_script         = file("startup.sh")
-      
+  
+    service_account {
+       email  = var.email
+       scopes = ["compute-ro"]
+    }
     #provisioner "remote-exec" {
     #  connection {
     #    host        = google_compute_address.static.address
