@@ -34,12 +34,15 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
   node_count     = 1
   node_locations = var.zone
   project        = var.project  
+  disk_size_gb = "30"
+  disk_type    = "pd-standard"
+  preemptible  = false  
   node_config {
     preemptible  = true
     machine_type = "e2-medium"
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.  .temitope7@gmail.com
+    service_account = google_service_account.446991545978-compute@developer.gserviceaccount.com
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
