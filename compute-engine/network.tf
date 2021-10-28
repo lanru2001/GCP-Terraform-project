@@ -13,7 +13,7 @@ resource "google_compute_firewall"   "rules_firewall" {
   network                 = var.network
   description             = "Creates firewall rule targeting tagged instances"
   
-  depends_on = [ google_compute_network.compute_network ]
+  #depends_on = [ google_compute_network.compute_network ]
   
   allow {
     protocol              = var.protocol 
