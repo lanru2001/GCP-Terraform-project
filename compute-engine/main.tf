@@ -45,18 +45,17 @@ resource "google_compute_instance" "web_server" {
     }    
 
     metadata_startup_script         = file("startup.sh")
-    metadata = {
-      ssh-keys = "${var.user}:${file(var.publickeypath)}"
+  
     }    
     
-    provisioner "remote-exec" {
-      connection {
-        host        = google_compute_address.static.address
-        type        = "ssh"
-        user        = var.user
-        timeout     = "500s"
-        private_key = file(var.privatekeypath)
-      }
-    }  
+    #provisioner "remote-exec" {
+    #  connection {
+    #    host        = google_compute_address.static.address
+    #    type        = "ssh"
+    #    user        = var.user
+    #    timeout     = "500s"
+    #    private_key = file(var.privatekeypath)
+    #  }
+    #}  
 }
 
