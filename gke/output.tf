@@ -1,22 +1,23 @@
-output "cluster_endpoint" {
-  description = "The IP address of the cluster master."
-  sensitive   = true
-  value       = module.gke_cluster.endpoint
+output "cluster_username" {
+  value = google_container_cluster.my_cluster.master_auth[0].username
 }
 
-output "client_certificate" {
-  description = "Public certificate used by clients to authenticate to the cluster endpoint."
-  value       = module.gke_cluster.client_certificate
+output "cluster_password" {
+  value = google_container_cluster.my_cluster.master_auth[0].password
 }
 
-output "client_key" {
-  description = "Private key used by clients to authenticate to the cluster endpoint."
-  sensitive   = true
-  value       = module.gke_cluster.client_key
+output "endpoint" {
+  value = google_container_cluster.my_cluster.endpoint
 }
 
-output "cluster_ca_certificate" {
-  description = "The public certificate that is the root of trust for the cluster."
-  sensitive   = true
-  value       = module.gke_cluster.cluster_ca_certificate
+output "instance_group_urls" {
+  value = google_container_cluster.my_cluster.instance_group_urls
+}
+
+output "node_config" {
+  value = google_container_cluster.my_cluster.node_config
+}
+
+output "node_pools" {
+  value = google_container_cluster.my_cluster.node_pool
 }
