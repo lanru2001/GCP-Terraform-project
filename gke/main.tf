@@ -39,7 +39,7 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
     machine_type = "e2-medium"
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    service_account = google_service_account.default.email
+    service_account = google_service_account.  .temitope7@gmail.com
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
