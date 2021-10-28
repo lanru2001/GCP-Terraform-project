@@ -6,6 +6,7 @@ auto_create_subnetworks             = true
 machine_type                        = "e2-medium"
 zone                                = "us-central1-c"
 region                              = "us-central1"
+#location                            =  ""
 tags                                = [ "allow-jenkins" ]
 image                               = "centos-cloud/centos-7"
 cluster_name                        = "app-cluster"
