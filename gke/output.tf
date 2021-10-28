@@ -1,10 +1,10 @@
-output "cluster_username" {
-  value = google_container_cluster.my_cluster.master_auth[0].username
-}
+#output "cluster_username" {
+#  value = google_container_cluster.my_cluster.master_auth[0].username
+#}
 
-output "cluster_password" {
-  value = google_container_cluster.my_cluster.master_auth[0].password
-}
+#output "cluster_password" {
+#  value = google_container_cluster.my_cluster.master_auth[0].password
+#}
 
 output "endpoint" {
   value = google_container_cluster.my_cluster.endpoint
