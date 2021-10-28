@@ -1,9 +1,9 @@
-resource "google_compute_network" "compute_network" {
-  project                 = var.project
-  name                    = var.network_name 
-  auto_create_subnetworks = true
-  mtu                     = 1460 # maximum transmission units in byte
-}
+#resource "google_compute_network" "compute_network" {
+#  project                 = var.project
+#  name                    = var.network_name 
+#  auto_create_subnetworks = true
+# mtu                     = 1460 # maximum transmission units in byte
+#}
 
 
 #Google network firewall 
