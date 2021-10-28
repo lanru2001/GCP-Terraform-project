@@ -8,7 +8,7 @@ resource "google_compute_instance" "web_server" {
     tags         = var.tags
   
     # Ensure firewall rule is provisioned before server, so that SSH doesn't fail.
-    depends_on = [ google_compute_firewall.rules_firewall ]
+    depends_on = [ google_compute_firewall.compute_firewall ]
 
     boot_disk {
         auto_delete                 = true
