@@ -24,6 +24,9 @@ resource "google_container_cluster"  "my_cluster" {
   logging_service          = "logging.googleapis.com/kubernetes"
   #labels
   #min_master_version
+  node_locations = [
+    "us-central1-a",
+  ]
 }
 
 
@@ -32,7 +35,6 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
   name           = "my-node-pool"
   cluster        = google_container_cluster.my_cluster.id
   node_count     = 1
-  node_locations = var.zone 
   project        = var.project  
   node_config   {
     preemptible  = true
