@@ -12,6 +12,18 @@ variable "zone" {
   default     = ""
 }
 
+variable "network" {
+  description = "The default vpc network to provision resources."
+  type        = string
+  default     = ""
+}
+
+variable "subnetwork" {
+  description = "The default vpc subnetwork to provision resources."
+  type        = string
+  default     = ""
+}
+
 variable "location" {
   description = "The location (region or zone) of the GKE cluster."
   type        = string
