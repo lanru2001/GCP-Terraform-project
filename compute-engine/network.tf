@@ -12,7 +12,9 @@ resource "google_compute_firewall"   "rules_firewall" {
   name                    = var.firewall_name
   network                 = var.network
   description             = "Creates firewall rule targeting tagged instances"
-
+  
+  depends_on = [ google_compute_network.vpc_network ]
+  
   allow {
     protocol              = var.protocol 
     ports                 = var.ports
