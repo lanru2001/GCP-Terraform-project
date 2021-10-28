@@ -31,7 +31,7 @@ resource "google_compute_instance" "web_server" {
     }  
 
     network_interface {
-       network                      = var.network
+       network                       = [ google_compute_network.compute_network ]
        #subnetwork                   = var.subnetwork
        #subnetwork_project           = var.subnetwork_project
 
