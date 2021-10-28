@@ -1,7 +1,7 @@
 project                             = "my-user-project-326713"
 network_name                        = "vpc-network-dev"
 network                             = "default"
-#subnetwork                         = "prod"
+subnetwork                          = "default"
 subnetwork_project                  =  "my-user-project-326713"
 auto_create_subnetworks             =  true
 machine_type                        = "e2-medium"
