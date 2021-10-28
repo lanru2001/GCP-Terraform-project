@@ -1,4 +1,4 @@
-resource "google_container_cluster" "primary" {
+resource "google_container_cluster"  "my_cluster" {
   
   name                     = "my-gke-cluster"
   location                 = "us-central1"
@@ -27,7 +27,7 @@ resource "google_container_cluster" "primary" {
 }
 
 
-resource "google_container_node_pool" "primary_preemptible_nodes" {
+resource "google_container_node_pool"    "my_cluster_node_pool" {
   
   name           = "my-node-pool"
   cluster        = google_container_cluster.primary.id
