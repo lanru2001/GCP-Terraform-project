@@ -41,6 +41,13 @@ variable "zone" {
 
 }
 
+variable "region" {
+  description = "The core region to deploy the google compute engine"
+  type        = string 
+  default     = ""
+
+}
+
 variable "image" {
   description = "The operating system image to run google compute engine"
   type        = string 
@@ -89,8 +96,6 @@ variable "tags" {
   default     = [""]
 
 }
-
-
 
 variable "network" {
   description = "The network name attached to the vm"
@@ -143,10 +148,12 @@ variable "email" {
   type    = string
   default = ""
 }
+
 variable "privatekeypath" {
    type = string
    default = "~/.ssh/id_rsa"
 }
+
 variable "publickeypath" {
    type = string
    default = "~/.ssh/id_rsa.pub"
