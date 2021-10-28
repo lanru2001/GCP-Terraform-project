@@ -8,7 +8,7 @@ resource "google_container_cluster"  "my_cluster" {
   description              = "Application cluster for container orchestrated app"
   #default_max_pods_per_node = 
   #enable_tpu              =
-  enable_autopilot         = false
+  #enable_autopilot         = false
   
   #Adding this block enables IP aliasing, making the cluster VPC-native instead of routes-based
   #ip_allocation_policy    =
