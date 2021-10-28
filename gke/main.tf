@@ -32,9 +32,8 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
   name           = "my-node-pool"
   cluster        = google_container_cluster.my_cluster.id
   node_count     = 1
-  node_locations = var.zone
+  node_locations = { var.zone }
   project        = var.project  
-  disk_size_gb = "30"
   disk_type    = "pd-standard"
   preemptible  = false  
   node_config   {
