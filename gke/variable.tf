@@ -6,10 +6,15 @@ variable "project" {
   default     = ""
 }
 
-variable "zone" {
-  description = "The zone of for the network."
+#variable "zone" {
+#  description = "The zone of for the network."
+#  type        = string
+#  default     = ""
+#}
+
+variable "location" {
+  description = "The location (region or zone) of the GKE cluster."
   type        = string
-  default     = ""
 }
 
 variable "region" {
