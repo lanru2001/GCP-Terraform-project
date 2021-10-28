@@ -15,7 +15,7 @@ variable "project" {
 variable "location" {
   description = "The location (region or zone) of the GKE cluster."
   type        = string
-  deafault    = ""
+  default    = ""
 }
 
 variable "region" {
