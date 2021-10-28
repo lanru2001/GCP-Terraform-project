@@ -1,4 +1,4 @@
-resource "google_compute_network" "vpc_network" {
+resource "google_compute_network" "compute_network" {
   project                 = var.project
   name                    = var.network_name 
   auto_create_subnetworks = true
@@ -13,7 +13,7 @@ resource "google_compute_firewall"   "rules_firewall" {
   network                 = var.network
   description             = "Creates firewall rule targeting tagged instances"
   
-  depends_on = [ google_compute_network.vpc_network ]
+  depends_on = [ google_compute_network.compute_network ]
   
   allow {
     protocol              = var.protocol 
