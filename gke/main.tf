@@ -34,8 +34,6 @@ resource "google_container_node_pool"    "my_cluster_node_pool" {
   node_count     = 1
   node_locations = { var.zone }
   project        = var.project  
-  disk_type    = "pd-standard"
-  preemptible  = false  
   node_config   {
     preemptible  = true
     machine_type = "e2-medium"
