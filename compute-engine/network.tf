@@ -1,10 +1,10 @@
-#resource "google_compute_network" "compute_network" {
-#  project                 = var.project
-#  name                    = var.network_name 
-#  auto_create_subnetworks = true
-# mtu                     = 1460 # maximum transmission units in byte
-#}
-
+#Google  vpc network 
+resource "google_compute_network" "compute_network" {
+  project                 = var.project
+  name                    = var.network_name 
+  auto_create_subnetworks = true
+  mtu                     = 1460 # maximum transmission units in byte
+}
 
 #Google network firewall 
 resource "google_compute_firewall"   "rules_firewall" {
@@ -13,7 +13,7 @@ resource "google_compute_firewall"   "rules_firewall" {
   network                 = var.network
   description             = "Creates firewall rule targeting tagged instances"
   
-  #depends_on = [ google_compute_network.compute_network ]
+  depends_on = [ google_compute_network.compute_network ]
   
   allow {
     protocol              = var.protocol 
