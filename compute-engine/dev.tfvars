@@ -17,6 +17,6 @@ firewall_name           = "allow-jenkins"
 ports                   = [ "22", "80", "8080" ]
 protocol                = "tcp"
 source_ranges           = [ "10.128.0.0/20" ]
-target_tags             = ["allow-jenkins"]
+target_tags             = ["jenkins"]
 email                   = "lanretemitope7@gmail.com"
 user                    = "lanretemitope7"
