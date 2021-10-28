@@ -1,6 +1,6 @@
 terraform {
     backend "gcs" {
-        bucket  = "tf-state-gcs"
+        bucket  = "tf-remote-bucket"
         prefix  = "terraform/ce"
     }
 }
