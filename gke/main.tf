@@ -19,7 +19,7 @@ resource "google_container_cluster"  "my_cluster" {
   
   #cluster_autoscaling     = 
   networking_mode          = "ROUTES"
-  machine_type             = "e2-medium"
+
   #logging_config          =
   logging_service          = "logging.googleapis.com/kubernetes"
   #labels
