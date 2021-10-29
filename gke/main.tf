@@ -1,7 +1,7 @@
 resource "google_container_cluster"  "my_cluster" {
   
   name                     = "my-gke-cluster"
-  location                 = "us-central1"
+  location                 = var.location
   project                  = var.project  
   network                  = var.network
   subnetwork               = var.subnetwork
