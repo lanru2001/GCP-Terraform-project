@@ -32,7 +32,7 @@ resource "google_container_cluster"  "my_cluster" {
   #labels
   #min_master_version
   node_locations = [
-    "us-central1-a",
+    "us-central1-c",
   ]
 }
 
