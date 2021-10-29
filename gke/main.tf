@@ -31,9 +31,9 @@ resource "google_container_cluster"  "my_cluster" {
   logging_service            = "logging.googleapis.com/kubernetes"
   #labels
   #min_master_version
-  node_locations = [
-    "us-central1-c",
-  ]
+  #node_locations = [
+  #  "us-central1-c",
+  #]
 }
 
 
