@@ -77,3 +77,16 @@ variable "vpc_secondary_cidr_block" {
   type        = string
   default     = ""
 }
+
+variable "ip_range_pods" { 
+  type      = string
+  default   = "" 
+
+}
+
+variable "ip_range_services" { 
+  type      = string   
+  default   = "" 
+
+}
+
