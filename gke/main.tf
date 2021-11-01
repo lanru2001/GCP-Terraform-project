@@ -39,13 +39,6 @@ resource "google_container_cluster"  "my_cluster" {
   default_snat_status {
             disabled = false
   }
-
-  logging_config {
-        enable_components = [
-            "SYSTEM_COMPONENTS",
-            "WORKLOADS",
-        ]
-  }
   
   # addons
   #network_policy             = false
