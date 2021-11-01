@@ -21,25 +21,6 @@ resource "google_container_cluster"  "my_cluster" {
   remove_default_node_pool   = true
   initial_node_count         = 3
   
-  addons_config {
-
-        network_policy_config {
-               disabled = true
-        }
-  }
-
-  cluster_autoscaling {
-            enabled = false
-  }
-
-  database_encryption {
-             state = "DECRYPTED"
-  }
-
-  default_snat_status {
-            disabled = false
-  }
-  
   # addons
   #network_policy             = false
   #horizontal_pod_autoscaling = true
