@@ -1,39 +1,44 @@
+# Terraform script to deploy gke private cluster 
 resource "google_container_cluster"  "my_cluster" {
   
-  name                       = var.cluster_name 
+  name                       = var.name
   location                   = var.location
   project                    = var.project  
   network                    = var.network
   subnetwork                 = var.subnetwork
+  networking_mode            = "VPC_NATIVE" 
   description                = "Application cluster for container orchestrated app"
- 
-  #ip_range_pods             = var.ip_range_pods
-  #ip_range_services         = var.ip_range_services  
+  #remove_default_node_pool   = true
+  initial_node_count         = 3
+
+  release_channel {
+     channel = "REGULAR"
+
+  }
+
+  private_cluster_config {
+
+    enable_private_nodes    = true
+    enable_private_endpoint = false
+    master_ipv4_cidr_block = "172.16.0.0/28"  
+
+  }
   
-  # optional variables
-  #kubernetes_version        = "1.20.9-gke.1001"  # "1.16.11-gke.5"
-  #regional                  = true
-  #create_service_account    = false
+  network_policy {
+    provider = "PROVIDER_UNSPECIFIED"
+    enabled  = true
+
+  }
+
+  ip_allocation_policy {
+  
+    cluster_secondary_range_name  = ""          
+    services_secondary_range_name = ""  
+  }
   
   
   #Adding this block enables IP aliasing, making the cluster VPC-native instead of routes-based
   enable_legacy_abac         = false
-  remove_default_node_pool   = true
-  initial_node_count         = 3
-  
-  # addons
-  #network_policy             = false
-  #horizontal_pod_autoscaling = true
-  #http_load_balancing        = true  
-   #master_auth {
-   #        client_certificate     = 
-   #        client_key             = 
-   #        cluster_ca_certificate = 
-   #        password               = 
-   #        username               =  
-    
-
-  networking_mode            = "ROUTES"  
   logging_service            = "logging.googleapis.com/kubernetes"
   
 }
@@ -44,6 +49,7 @@ resource "google_container_node_pool"  "my_cluster_node_pool" {
   cluster                = google_container_cluster.my_cluster.id
   node_count             = 3
   project                = var.project  
+  location               = var.region  
 
 
   node_config   {
@@ -64,4 +70,4 @@ resource "google_container_node_pool"  "my_cluster_node_pool" {
        "https://www.googleapis.com/auth/monitoring"
     ]
   } 
-} 
+}  
